@@ -34,11 +34,11 @@ func (c *command) newCreateCommand() *cobra.Command {
 		Annotations: map[string]string{pcmd.RunRequirement: pcmd.RequireNonAPIKeyCloudLogin},
 	}
 
-	cmd.Flags().Uint32("partitions", 0, "Number of topic partitions.")
+	cmd.Flags().Uint32("partitions", 0, "Number of partitions to create the topic with.")
 	cmd.Flags().StringSlice("config", nil, `A comma-separated list of configuration overrides ("key=value") for the topic being created.`)
 	pcmd.AddEndpointFlag(cmd, c.AuthenticatedCLICommand)
 	pcmd.AddDryRunFlag(cmd)
-	cmd.Flags().Bool("if-not-exists", false, "Exit gracefully if topic already exists.")
+	cmd.Flags().Bool("if-not-exists", false, "Exit successfully, without an error, if the topic already exists.")
 	pcmd.AddClusterFlag(cmd, c.AuthenticatedCLICommand)
 	pcmd.AddContextFlag(cmd, c.CLICommand)
 	pcmd.AddEnvironmentFlag(cmd, c.AuthenticatedCLICommand)
