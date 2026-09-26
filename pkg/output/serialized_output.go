@@ -2,6 +2,7 @@ package output
 
 import (
 	"encoding/json"
+	"os"
 
 	"github.com/spf13/cobra"
 	"github.com/tidwall/pretty"
@@ -16,13 +17,13 @@ func SerializedOutput(cmd *cobra.Command, v any) error {
 		if err != nil {
 			return err
 		}
-		Print(false, string(pretty.Pretty(out)))
+		printTo(os.Stdout, false, string(pretty.Pretty(out)))
 	case YAML:
 		out, err := yaml.Marshal(v)
 		if err != nil {
 			return err
 		}
-		Print(false, string(out))
+		printTo(os.Stdout, false, string(out))
 	}
 	return nil
 }
@@ -46,10 +47,10 @@ func SerializedOutputFromJsonTags(cmd *cobra.Command, v any) error {
 		if err != nil {
 			return err
 		}
-		Print(false, string(out))
+		printTo(os.Stdout, false, string(out))
 		return nil
 	}
 
-	Print(false, string(pretty.Pretty(data)))
+	printTo(os.Stdout, false, string(pretty.Pretty(data)))
 	return nil
 }

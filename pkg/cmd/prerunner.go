@@ -9,6 +9,7 @@ import (
 	"strings"
 	"time"
 
+	"github.com/DABH/localizer"
 	"github.com/hashicorp/go-version"
 	"github.com/spf13/cobra"
 	"github.com/spf13/pflag"
@@ -154,7 +155,7 @@ func isCloudLoginCmd(command *CLICommand, isTest bool) bool {
 func LabelRequiredFlags(cmd *cobra.Command) {
 	cmd.Flags().VisitAll(func(flag *pflag.Flag) {
 		if IsFlagRequired(flag) {
-			flag.Usage = "REQUIRED: " + flag.Usage
+			flag.Usage = localizer.T("REQUIRED:") + " " + flag.Usage
 		}
 	})
 }

@@ -3,6 +3,8 @@ package errors
 import (
 	"fmt"
 	"strings"
+
+	"github.com/DABH/localizer"
 )
 
 var (
@@ -52,8 +54,8 @@ func DisplaySuggestionsMessage(err error) string {
 }
 
 func ComposeSuggestionsMessage(msg string) string {
-	lines := strings.Split(msg, "\n")
-	suggestionsMsg := suggestionsMessageHeader
+	lines := strings.Split(localizer.T(msg), "\n")
+	suggestionsMsg := "\n" + localizer.T("Suggestions:") + "\n"
 	for _, line := range lines {
 		suggestionsMsg += fmt.Sprintf(suggestionsLineFormat, line)
 	}

@@ -9,6 +9,7 @@ import (
 	"sort"
 	"strings"
 
+	"github.com/DABH/localizer"
 	"github.com/olekukonko/tablewriter"
 	"github.com/sevlyar/retag"
 	"github.com/spf13/cobra"
@@ -149,7 +150,7 @@ func (t *Table) printCore(writer io.Writer, auto bool) error {
 		isEmpty = len(t.objects[0].(map[string]string)) == 0
 	}
 	if isEmpty {
-		_, err := fmt.Fprintln(writer, "None found.")
+		_, err := fmt.Fprintln(writer, localizer.T("None found."))
 		return err
 	}
 
@@ -170,7 +171,7 @@ func (t *Table) printCore(writer io.Writer, auto bool) error {
 			tag := strings.Split(field.Tag.Get(t.format.String()), ",")
 
 			if !slices.Contains(tag, "-") {
-				header = append(header, tag[0])
+				header = append(header, localizer.T(tag[0]))
 
 				switch field.Type.Kind() {
 				case reflect.Int, reflect.Int32, reflect.Int64:
@@ -203,7 +204,7 @@ func (t *Table) printCore(writer io.Writer, auto bool) error {
 			tag := strings.Split(reflect.TypeOf(t.objects[0]).Elem().Field(i).Tag.Get(t.format.String()), ",")
 			val := reflect.ValueOf(t.objects[0]).Elem().Field(i)
 			if !slices.Contains(tag, "-") && !(slices.Contains(tag, "omitempty") && isZero(val)) {
-				w.Append([]string{tag[0], getTableValueString(val)})
+				w.Append([]string{localizer.T(tag[0]), getTableValueString(val)})
 			}
 		}
 	}

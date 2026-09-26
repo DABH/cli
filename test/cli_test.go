@@ -259,7 +259,7 @@ func runCommand(t *testing.T, binaryName string, env []string, argString string,
 	}
 
 	cmd := exec.Command(binaryPath, args...)
-	cmd.Env = append(os.Environ(), env...)
+	cmd.Env = append(append(os.Environ(), "LOCALIZER_LANG=en", "RUNEWIDTH_EASTASIAN=0"), env...)
 	cmd.Stdin = strings.NewReader(input)
 
 	out, err := cmd.CombinedOutput()

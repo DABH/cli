@@ -1,0 +1,25 @@
+languages: [ja, zh-Hans, ko, es, fr, de, pt-BR]
+locales_dir: locales
+glossary:
+  keep: [Confluent, Confluent Cloud, Confluent Platform, Apache Kafka, Kafka, Flink, Apache Flink, ksqlDB, Schema Registry, Stream Governance, Kafka Connect, Tableflow, KRaft, ZooKeeper]
+extract:
+  exclude: ["test/**", "**/mock/**", "mock/**", "cmd/lint/**", "cmd/docs/**", "cmd/whitelist/**", "pkg/linter/**", "**/testutil/**", "**/test_helpers.go"]
+  struct_tags: [human]
+  fields:
+    - github.com/confluentinc/cli/v4/pkg/examples.Example.Text
+    - github.com/confluentinc/cli/v4/pkg/form.Field.Prompt
+  funcs:
+    github.com/confluentinc/cli/v4/pkg/output.Print: [1]
+    github.com/confluentinc/cli/v4/pkg/output.Println: [1]
+    github.com/confluentinc/cli/v4/pkg/output.Printf: [1]
+    github.com/confluentinc/cli/v4/pkg/output.ErrPrint: [1]
+    github.com/confluentinc/cli/v4/pkg/output.ErrPrintln: [1]
+    github.com/confluentinc/cli/v4/pkg/output.ErrPrintf: [1]
+    github.com/confluentinc/cli/v4/pkg/errors.NewErrorWithSuggestions: [0, 1]
+    github.com/confluentinc/cli/v4/pkg/errors.NewWrapErrorWithSuggestions: [1, 2]
+    github.com/confluentinc/cli/v4/pkg/errors.NewWarningWithSuggestions: [0, 1]
+  # Strings printed by third-party libraries (cobra-shell, go-ps1) that the extractor cannot see.
+  strings:
+    - Start an interactive shell.
+    - Exit the interactive shell.
+    - Use this command to add `confluent` information to your terminal prompt.

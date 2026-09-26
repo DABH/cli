@@ -6,6 +6,7 @@ import (
 	"runtime/debug"
 	"strings"
 
+	"github.com/DABH/localizer"
 	shell "github.com/brianstrauch/cobra-shell"
 	"github.com/spf13/cobra"
 
@@ -50,6 +51,7 @@ import (
 	"github.com/confluentinc/cli/v4/internal/update"
 	"github.com/confluentinc/cli/v4/internal/usm"
 	"github.com/confluentinc/cli/v4/internal/version"
+	"github.com/confluentinc/cli/v4/locales"
 	pauth "github.com/confluentinc/cli/v4/pkg/auth"
 	"github.com/confluentinc/cli/v4/pkg/ccloudv2"
 	pcmd "github.com/confluentinc/cli/v4/pkg/cmd"
@@ -137,7 +139,11 @@ func NewConfluentCommand(cfg *config.Config) *cobra.Command {
 	cmd.AddCommand(schemaregistry.New(cfg, prerunner))
 	cmd.AddCommand(secret.New(prerunner, secrets.NewPasswordProtectionPlugin()))
 	cmd.AddCommand(servicequota.New(prerunner))
-	cmd.AddCommand(shell.New(cmd, func() *cobra.Command { return NewConfluentCommand(cfg) }))
+	cmd.AddCommand(shell.New(cmd, func() *cobra.Command {
+		c := NewConfluentCommand(cfg)
+		localizer.Localize(c, locales.FS) // the shell rebuilds the tree after every line
+		return c
+	}))
 	cmd.AddCommand(streamshare.New(prerunner))
 	cmd.AddCommand(switchover.New(prerunner))
 	cmd.AddCommand(tableflow.New(prerunner))
@@ -180,6 +186,7 @@ func Execute(cmd *cobra.Command, args []string, cfg *config.Config) error {
 		cmd.PersistentPostRun = u.Collect
 	}
 
+	localizer.Localize(cmd, locales.FS, localizer.WithEnvVar("CONFLUENT_LANG"))
 	err := cmd.Execute()
 	output.ErrPrint(cfg.EnableColor, errors.DisplaySuggestionsMessage(err))
 

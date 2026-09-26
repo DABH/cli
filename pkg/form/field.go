@@ -5,6 +5,8 @@ import (
 	"regexp"
 	"strings"
 
+	"github.com/DABH/localizer"
+
 	"github.com/confluentinc/cli/v4/pkg/errors"
 )
 
@@ -60,9 +62,9 @@ func (f Field) validate(val string) (any, error) {
 }
 
 func (f Field) String() string {
-	out := f.Prompt
+	out := localizer.T(f.Prompt)
 	if f.IsYesOrNo {
-		out += " (y/n)"
+		out += " " + localizer.T("(y/n)")
 	}
 	out += ": "
 

@@ -6,6 +6,7 @@ import (
 	"os"
 	"regexp"
 
+	"github.com/DABH/localizer"
 	"github.com/charmbracelet/lipgloss"
 
 	"github.com/confluentinc/cli/v4/pkg/resource"
@@ -18,27 +19,27 @@ var (
 )
 
 func Print(color bool, s string) {
-	printTo(os.Stdout, color, s)
+	printTo(os.Stdout, color, localizer.T(s))
 }
 
 func Println(color bool, s string) {
-	printTo(os.Stdout, color, s+"\n")
+	printTo(os.Stdout, color, localizer.T(s)+"\n")
 }
 
 func Printf(color bool, s string, args ...any) {
-	printTo(os.Stdout, color, fmt.Sprintf(s, args...))
+	printTo(os.Stdout, color, fmt.Sprintf(localizer.T(s), args...))
 }
 
 func ErrPrint(color bool, s string) {
-	printTo(os.Stderr, color, s)
+	printTo(os.Stderr, color, localizer.T(s))
 }
 
 func ErrPrintln(color bool, s string) {
-	printTo(os.Stderr, color, s+"\n")
+	printTo(os.Stderr, color, localizer.T(s)+"\n")
 }
 
 func ErrPrintf(color bool, s string, args ...any) {
-	printTo(os.Stderr, color, fmt.Sprintf(s, args...))
+	printTo(os.Stderr, color, fmt.Sprintf(localizer.T(s), args...))
 }
 
 func printTo(w io.Writer, color bool, s string) {
