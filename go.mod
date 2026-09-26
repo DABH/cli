@@ -3,6 +3,7 @@ module github.com/confluentinc/cli/v4
 go 1.26.8
 
 require (
+	github.com/DABH/localizer v0.3.0
 	github.com/antihax/optional v1.0.0
 	github.com/aws/aws-sdk-go v1.54.15
 	github.com/billgraziano/dpapi v0.5.0
@@ -64,7 +65,6 @@ require (
 	github.com/confluentinc/mds-sdk-go-public/mdsv2alpha1 v0.0.0-20240923163156-b922b35891f9
 	github.com/confluentinc/properties v0.0.0-20190814194548-42c10394a787
 	github.com/confluentinc/schema-registry-sdk-go v0.1.1-0.20251021214222-018e0cd35bf9
-	github.com/DABH/localizer v0.1.0
 	github.com/davecgh/go-spew v1.1.1
 	github.com/dghubble/sling v1.4.2
 	github.com/fatih/color v1.17.0

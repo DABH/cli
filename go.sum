@@ -53,8 +53,8 @@ github.com/AzureAD/microsoft-authentication-library-for-go v1.2.2 h1:XHOnouVk1mx
 github.com/AzureAD/microsoft-authentication-library-for-go v1.2.2/go.mod h1:wP83P5OoQ5p6ip3ScPr0BAq0BvuPAvacpEuSzyouqAI=
 github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03qcyfWMU=
 github.com/BurntSushi/xgb v0.0.0-20160522181843-27f122750802/go.mod h1:IVnqGOEym/WlBOVXweHU+Q+/VP0lqqI8lqeDx9IjBqo=
-github.com/DABH/localizer v0.1.0 h1:5D4rZYfL4rV+7ZIlcONb5F/BEJBJl09s/BEcPaE0NLM=
-github.com/DABH/localizer v0.1.0/go.mod h1:ICI1qTK4FTytzqoJnA9EIvhjM6aRnEcbmyLQWUHDtZU=
+github.com/DABH/localizer v0.3.0 h1:9MxnU3liLepnXWoFd6bkGd6XSQ0o2n/8b4Cd18lH8ko=
+github.com/DABH/localizer v0.3.0/go.mod h1:ICI1qTK4FTytzqoJnA9EIvhjM6aRnEcbmyLQWUHDtZU=
 github.com/Microsoft/go-winio v0.5.2/go.mod h1:WpS1mjBmmwHBEWmogvA2mj8546UReBk4v8QkMxJ6pZY=
 github.com/Microsoft/go-winio v0.6.2 h1:F2VQgta7ecxGYO8k3ZZz3RS8fVIXVxONVUPlNERoyfY=
 github.com/Microsoft/go-winio v0.6.2/go.mod h1:yd8OoFMLzJbo9gZq8j5qaps8bJ9aShtEA8Ipt1oGCvU=
