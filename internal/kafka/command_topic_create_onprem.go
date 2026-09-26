@@ -43,7 +43,7 @@ func (c *command) newCreateCommandOnPrem() *cobra.Command {
 
 	cmd.Flags().AddFlagSet(pcmd.OnPremKafkaRestSet())
 	cmd.Flags().Uint32("partitions", 0, "Number of partitions to create the topic with.")
-	cmd.Flags().Uint32("replication-factor", 0, "Number of replicas.")
+	cmd.Flags().Uint32("replication-factor", 0, "Number of replicas for each partition.")
 	pcmd.AddConfigFlag(cmd)
 	cmd.Flags().Bool("if-not-exists", false, "Exit successfully, without an error, if the topic already exists.")
 
