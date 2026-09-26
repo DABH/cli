@@ -1,0 +1,22 @@
+# Localizer via the GitHub Action (keyless, OIDC). The GitHub App installed on this repository does the
+# same job with its own pull request; this workflow demonstrates the alternative that needs no App.
+name: Localizer
+
+on:
+  push:
+    branches: [localizer]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+  id-token: write
+
+jobs:
+  translations:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/localizer
+        with:
+          branch: localizer-translations-action
