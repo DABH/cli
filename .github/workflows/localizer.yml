@@ -17,6 +17,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: DABH/localizer/action@v0.3.0
+      - uses: DABH/localizer/action@v0.4.1
         with:
           branch: localizer-translations-action

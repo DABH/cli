@@ -3,7 +3,7 @@ module github.com/confluentinc/cli/v4
 go 1.26.8
 
 require (
-	github.com/DABH/localizer v0.3.0
+	github.com/DABH/localizer v0.4.1
 	github.com/antihax/optional v1.0.0
 	github.com/aws/aws-sdk-go v1.54.15
 	github.com/billgraziano/dpapi v0.5.0
