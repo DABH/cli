@@ -33,7 +33,7 @@ type command struct {
 func New(cfg *config.Config, prerunner pcmd.PreRunner) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:    "update",
-		Short:  "Update the Confluent CLI to the latest version.",
+		Short:  "Update the Confluent CLI.",
 		Args:   cobra.NoArgs,
 		Hidden: cfg.DisableUpdates,
 	}
